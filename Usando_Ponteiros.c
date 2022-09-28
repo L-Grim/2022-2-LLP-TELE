@@ -1,20 +1,34 @@
 #include <stdio.h>
 
 int main() {
-	int var = 43; // Declarando a variavel
+	float dias[7] = {32.12, 33.00, 31.25, 34.21, 30.54, 27.45, 29.21};
     
-    int *p; // p é um ponteiro para uma variavel inteira
+    float *p; // Ponteiro para a variavel float
     
-    p = &var;
+    p = &dias[0]; // Armazena em p o primeiro endereco do array
     
-    //Referncia: mostrar o endereço da variavel var na     //memória
-    printf("O valor de P(Referencia)\n");
-    printf("%p\n\n", p);
+    printf("O tamanho do tipo float eh = %d\n", sizeof(float));
     
-    //Deferencia: mostrar o valor da variavel var 
-    //indiretamente usando o ponteiro P
-    printf("O valor de var acessado usando um ponteiro\n");
-    printf("%d\n", *p);
+    printf("Acessando os valores do Array usando dias[i]\n");
+    for (int i = 0; i < 7; i++) {
+    	// Imprime o conteudo de array usando o nome do array e 		//o indice correspondente.
+    	printf("indice %d = ", i);
+        printf("%5.2f\n", dias[i]);
+    }
     
+    printf("Acessando os valores dos elementos do Array\n");
+    for (int i = 0; i < 7; i++) {
+    	// Imprime o conteudo de cada elemento do array 				// identificados pelos seus indices correspondentes.
+    	printf("indice %d = ", i);
+        printf("%p\n", (p + i));
+    }
+    
+    printf("Acessando os valores do Array usando ponteiro (Endereços)\n");
+    for (int i = 0; i < 7; i++) {
+    	// Imprime o conteudo dp array usando o deferenciamento
+    	// da expressão p + i Essa expressão apresenta i * 				// sezeof(float) ao valor armazenado em p.
+    	printf("indice %d = ", i);
+        printf("%5.2f\n", *(p + i));
+    }
     return 0;
 }
