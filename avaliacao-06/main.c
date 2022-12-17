@@ -12,17 +12,16 @@ int main()
     int i, j;
     int result;
     char matrix[LINHAS][COLUNAS][14] = { {"nome", "matricula", "media"},
-                                         {"Yuri", "85996929657", "10.0"},{"Taveira","123456", "10"} };
+                                         {"Yuri", "85996929657", "10.0"},
+                                         {"Taveira","123456", "10"} };
+    
     arq = fopen("MediasAlunos.txt", "wt");
-    if (arq == NULL)
-    {
+    if (arq == NULL) {
         printf("Problemas na CRIACAO do arquivo\n");
         exit(1);
     }
-    for(i = 0; i < LINHAS; i++)
-    {
-        for(j = 0; j < COLUNAS; j++)
-        {
+    for(i = 0; i < LINHAS; i++) {
+        for(j = 0; j < COLUNAS; j++) {
             fputs(matrix[i][j], arq);
             fputs(" ", arq);
         }
